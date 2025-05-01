@@ -572,43 +572,6 @@ OperateButton(Settings)
 
 
 
----Admin Detector in Server
-loadstring(game:HttpGet('https://raw.githubusercontent.com/MainScripts352/MainScripts352/main/Admin'))()
----
-
----Bad Words Detector
---local Result = DetectBadWords("Message Here") --Use This to Detect if message has a inappropriate words
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MainScripts352/MainScripts352/refs/heads/main/Detect%20BadWords"))()
----
-
---[[ Encode Decode Function
-EncodeSymbol("A","ASCII") --use this method to Encode Letter, this results is = "65 "
-DecodeSymbol("65","ASCII") --use this method to Decode Letter, this results is = "A"
-Encode("Hi","ASCII") --use this method to Encode Message, this results is = "72 105"
-Decode("72 105 ","ASCII") --use this method to Decode Message, this results is = "Hi"
-]]
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MainScripts352/MainScripts352/refs/heads/main/Encode%20Source"))()
----
-
-
---[[ Restricted Users Detector for Ghosthub MoreScript
-local Check = IsRestricted(User ID Here) --use this to check if user is restricted
-]]
-loadstring(game:HttpGet('https://raw.githubusercontent.com/MainScripts352/MainScripts352/refs/heads/main/Ghost%20Hub%20MoreScript%20Users%20Restricted'))()
----
-
---[[ Restricted Scripts Detector for Ghosthub MoreScript
-local Check = ScriptRestricted("Script Here") --use this to check if script is restricted
-]]
-loadstring(game:HttpGet('https://raw.githubusercontent.com/MainScripts352/MainScripts352/refs/heads/main/Ghost%20Hub%20Script%20Restricted'))()
----
-
---[[ Check User if is in server dectector
-local InServer = IsInServer(User_ID_Here) --use this to detect if user is in server
-]]
-loadstring(game:HttpGet('https://raw.githubusercontent.com/MainScripts352/MainScripts352/refs/heads/main/Check%20User%20If%20In%20Server%20Detector'))()
----
-
 ---Request Message Notification Function
 function RequestMessage(title,msg1,msg2)
  local MessageGui = Instance.new("ScreenGui")
@@ -774,46 +737,6 @@ local function CheckPremium()
     return false
  end
 end
----
-
-
-
-
-
-
----Update Total Execute in Discord Function
-local function UpdateTotalExecute(executeNum)
- local url = "https://discord.com/api/v10/webhooks/1366117743077888031/R5vABRbJxievr_TObgTcrBFkx-07Kg70DbZumD33NaQiIQps159gQOiNxD3LQ0HZGb2C/messages/1366118046103502949"
- local request = request or syn.request or http_request
-
- local Table = {
-   content = "",
-   embeds = {{
-     title = executeNum,
-     description = "This is Total of Ghost Hub Script Execute Starts From December 9 2024",
-     color = 16711680,
-     footer = {
-       text = ""
-     },
-     author = {
-       name = "Total Execute:"
-     },
-    fields = {}
-   }}
- }
-
- local send = request({
-    Url = url,
-    Method = "PUT",
-    Headers = {
-      ["Content-Type"] = "application/json"
-    },
-    Body = game:GetService("HttpService"):JSONEncode(Table)
- })
-end
----
-
-
 
 ---Show Home Function
 local ProfileImage, IsReady = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
@@ -826,12 +749,6 @@ local Region = IP.region
 local Capital = IP.capital
 local City = IP.city
 local Postal = IP.postal
- 
----For Get Ghosthub Users in database
-local UsersURL = "https://ghosthub-users-6d1f3-default-rtdb.firebaseio.com/"
-local UsersSecret = "QoQVO0KkGVcoQE64nZX9QcClJYERcfMIiCu9Bd2K"
-local UsersTable = nil
----
 
 function ShowHome()
  local ScrollingFrameHome = Instance.new("ScrollingFrame")
@@ -4870,9 +4787,3 @@ local function DiscordBot()
      return "Yes"
   end
  end
-if ActiveDatabases == true then
-   UpdateData()
-   GetMoreScript()
-   AddClick()
-   DiscordBot()
-end
